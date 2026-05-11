@@ -1,1 +1,0 @@
-# daiko_trade
