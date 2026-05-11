@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>代行・トレードポータル</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #f8fafc;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .btn-shadow {
+            box-shadow: 0 4px 14px 0 rgba(0, 0, 0, 0.1);
+        }
+        .btn-transition {
+            transition: all 0.2s ease;
+        }
+        .btn-transition:active:not(:disabled) {
+            transform: scale(0.98);
+            opacity: 0.9;
+        }
+        .btn-disabled {
+            background-color: #cbd5e1 !important;
+            cursor: not-allowed;
+            box-shadow: none !important;
+        }
+        .checkbox-container {
+            border: 1.5px solid #f87171;
+            background-color: #fef2f2;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center p-4">
+
+    <!-- Header Section -->
+    <header class="w-full max-w-md mt-8 mb-10 text-center">
+        <h1 class="text-2xl font-bold text-slate-800">Substitution & Trade</h1>
+        <p class="text-sm text-slate-500 mt-2">代行・トレード申請ポータル</p>
+    </header>
+
+    <!-- Main Content -->
+    <main class="w-full max-w-md space-y-6">
+        
+        <!-- Action: Request Substitution (With Checkbox Logic) -->
+        <div class="glass-card p-6 rounded-3xl shadow-sm border border-slate-100">
+            <div class="flex items-center mb-4">
+                <div class="w-10 h-10 bg-orange-100 rounded-full flex items-center justify-center mr-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-orange-600" fill="none" viewbox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                </div>
+                <div>
+                    <h2 class="font-bold text-slate-800">【依頼申請】代行・トレード</h2>
+                    <p class="text-xs text-slate-400 font-medium uppercase tracking-wider">Request Help</p>
+                </div>
+            </div>
+
+            <!-- Confirmation Checkbox -->
+            <div class="checkbox-container p-4 rounded-xl mb-6">
+                <label class="flex items-start cursor-pointer group">
+                    <div class="flex items-center h-5 mt-1">
+                        <input id="confirm-checkbox" type="checkbox" class="w-5 h-5 text-orange-600 border-red-300 rounded focus:ring-red-500">
+                    </div>
+                    <span class="ml-3 text-sm text-slate-700 leading-relaxed font-medium">
+                        ※チェック必須※<br>代わりの担当者が決まるまで自身で責任を持って対応・報連相を行う事を確認しました。
+                    </span>
+                </label>
+            </div>
+
+            <a id="request-btn" href="https://script.google.com/macros/s/AKfycbzgyQjt6Sgo5YzFVWQxrGbl4C6xkGNt3JPL3P4x7Eo/dev?page=request" 
+               class="block w-full py-4 bg-orange-600 text-white text-center font-bold rounded-2xl btn-shadow btn-transition btn-disabled pointer-events-none">
+                依頼フォームを開く
+            </a>
+        </div>
+
+        <!-- Action: Accept Substitution -->
+        <div class="glass-card p-6 rounded-3xl shadow-sm border border-slate-100">
+            <div class="flex items-center mb-4">
+                <div class="w-10 h-10 bg-indigo-100 rounded-full flex items-center justify-center mr-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-indigo-600" fill="none" viewbox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                </div>
+                <div>
+                    <h2 class="font-bold text-slate-800">【引き受け】代行・トレード</h2>
+                    <p class="text-xs text-slate-400 font-medium uppercase tracking-wider">Accept Request</p>
+                </div>
+            </div>
+            <p class="text-sm text-slate-600 mb-6 leading-relaxed">
+                現在出されている代行・トレード依頼の一覧を確認し、引き受けることができます。
+            </p>
+            <a href="https://script.google.com/macros/s/AKfycbzgyQjt6Sgo5YzFVWQxrGbl4C6xkGNt3JPL3P4x7Eo/dev?page=accept" 
+               class="block w-full py-4 bg-indigo-600 text-white text-center font-bold rounded-2xl btn-shadow btn-transition">
+                引き受け画面を開く
+            </a>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="mt-auto py-8 text-center">
+        <p class="text-xs text-slate-400">&copy; Shift Portal System</p>
+    </footer>
+
+    <script>
+        const checkbox = document.getElementById('confirm-checkbox');
+        const requestBtn = document.getElementById('request-btn');
+
+        checkbox.addEventListener('change', function() {
+            if (this.checked) {
+                requestBtn.classList.remove('btn-disabled', 'pointer-events-none');
+                requestBtn.classList.add('bg-orange-600');
+            } else {
+                requestBtn.classList.add('btn-disabled', 'pointer-events-none');
+                requestBtn.classList.remove('bg-orange-600');
+            }
+        });
+    </script>
+</body>
+</html>
