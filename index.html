@@ -69,16 +69,13 @@
     </style>
 </head>
 <body class="min-h-screen flex flex-col items-center p-4">
-
     <!-- Header Section -->
     <header class="w-full max-w-md mt-8 mb-10 text-center">
         <h1 class="text-2xl font-bold text-slate-800">Substitution & Trade</h1>
         <p class="text-sm text-slate-500 mt-2">代行・トレード申請ポータル</p>
     </header>
-
     <!-- Main Content -->
     <main class="w-full max-w-md space-y-6">
-
         <!-- Action: Request Substitution (With Checkbox Logic) -->
         <div class="glass-card p-6 rounded-3xl shadow-sm border border-slate-100">
             <div class="flex items-center mb-5">
@@ -88,11 +85,10 @@
                     </svg>
                 </div>
                 <div>
-                    <h2 class="font-bold text-slate-800">【依頼申請】代行・トレード</h2>
+                    <h2 class="font-bold text-slate-800">【26年7月分】代行・トレード申請フォーム</h2>
                     <p class="text-xs text-slate-400 font-medium uppercase tracking-wider">Request Help</p>
                 </div>
             </div>
-
             <!-- 依頼方法の手順 -->
             <div class="steps-box mb-5">
                 <p class="text-xs font-bold text-amber-700 mb-2">▼ 代行・トレード依頼方法</p>
@@ -115,7 +111,6 @@
                     </div>
                 </div>
             </div>
-
             <!-- ※チェック必須 ラベル -->
             <p class="text-xs font-bold text-red-500 mb-2 flex items-center gap-1">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -123,10 +118,8 @@
                 </svg>
                 以下を確認し、両方チェックしてから申請してください
             </p>
-
             <!-- Confirmation Checkboxes -->
             <div class="space-y-2 mb-5">
-
                 <!-- チェック① -->
                 <div class="check-item" id="wrap-check1">
                     <label class="flex items-start cursor-pointer gap-3">
@@ -136,7 +129,6 @@
                         </span>
                     </label>
                 </div>
-
                 <!-- チェック② -->
                 <div class="check-item" id="wrap-check2">
                     <label class="flex items-start cursor-pointer gap-3">
@@ -146,15 +138,12 @@
                         </span>
                     </label>
                 </div>
-
             </div>
-
-            <a id="request-btn" href="https://script.google.com/macros/s/AKfycbzNPMmngv3TIx3P6Q4vcofYlNOTiXLnNMzKAw2ChBygTdrvnwsHu5MEhDJg7aZIbIIR0g/exec?page=request"
+            <a id="request-btn" href="https://script.google.com/macros/s/AKfycbzg1jpsLZXcorLU5SRgrWLR3xDHu5BRIk1ctkzG0YxEe9n857BixjiGWmcqIW_cxz8NJA/exec?page=request"
                class="block w-full py-4 bg-orange-600 text-white text-center font-bold rounded-2xl btn-shadow btn-transition btn-disabled pointer-events-none">
                 依頼フォームを開く
             </a>
         </div>
-
         <!-- Action: Accept Substitution -->
         <div class="glass-card p-6 rounded-3xl shadow-sm border border-slate-100">
             <div class="flex items-center mb-4">
@@ -164,33 +153,29 @@
                     </svg>
                 </div>
                 <div>
-                    <h2 class="font-bold text-slate-800">【引き受け】代行・トレード</h2>
+                    <h2 class="font-bold text-slate-800">【引き受け】担当募集枠・代行・トレード</h2>
                     <p class="text-xs text-slate-400 font-medium uppercase tracking-wider">Accept Request</p>
                 </div>
             </div>
             <p class="text-sm text-slate-600 mb-6 leading-relaxed">
                 現在出されている代行・トレード依頼の一覧を確認し、引き受けることができます。
             </p>
-            <a href="https://script.google.com/macros/s/AKfycbzNPMmngv3TIx3P6Q4vcofYlNOTiXLnNMzKAw2ChBygTdrvnwsHu5MEhDJg7aZIbIIR0g/exec?page=accept"
+            <a href="https://script.google.com/macros/s/AKfycbzg1jpsLZXcorLU5SRgrWLR3xDHu5BRIk1ctkzG0YxEe9n857BixjiGWmcqIW_cxz8NJA/exec?page=accept"
                class="block w-full py-4 bg-indigo-600 text-white text-center font-bold rounded-2xl btn-shadow btn-transition">
                 引き受け画面を開く
             </a>
         </div>
-
     </main>
-
     <!-- Footer -->
     <footer class="mt-auto py-8 text-center">
         <p class="text-xs text-slate-400">&copy; Shift Portal System</p>
     </footer>
-
     <script>
         const checkbox1 = document.getElementById('checkbox1');
         const checkbox2 = document.getElementById('checkbox2');
         const requestBtn = document.getElementById('request-btn');
         const wrap1 = document.getElementById('wrap-check1');
         const wrap2 = document.getElementById('wrap-check2');
-
         function updateBtn() {
             const allChecked = checkbox1.checked && checkbox2.checked;
             if (allChecked) {
@@ -201,7 +186,6 @@
             wrap1.classList.toggle('checked', checkbox1.checked);
             wrap2.classList.toggle('checked', checkbox2.checked);
         }
-
         checkbox1.addEventListener('change', updateBtn);
         checkbox2.addEventListener('change', updateBtn);
     </script>
